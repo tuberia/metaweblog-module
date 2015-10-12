@@ -1,0 +1,41 @@
+{
+  "name": "tuberia-metaweblog-module",
+  "version": "0.1.0-rc.1",
+  "description": "Connect to a MetaWeblog API from your tuberia pipeline.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npm run build-test && ./node_modules/.bin/jasmine",
+    "build": "./node_modules/.bin/babel --optional es7.functionBind -d lib/ src/",
+    "build-test": "./node_modules/.bin/babel --plugins babel-plugin-rewire --optional es7.functionBind -d lib/ src/ && ./node_modules/.bin/babel --plugins babel-plugin-rewire --optional es7.functionBind -d spec/out/ spec/src/",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "mercurial",
+    "url": "https://bitbucket.org/tuberia/metaweblog-module"
+  },
+  "keywords": [
+    "tuberia",
+    "tuberia-module",
+    "metaweblog",
+    "blog"
+  ],
+  "author": "Colin Bate <colin@colinbate.com>",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/tuberia/metaweblog-module#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "babel-plugin-rewire": "^0.1.22",
+    "jasmine": "^2.3.2",
+    "tuberia-core": "^1.0.0-rc.1"
+  },
+  "dependencies": {
+    "agentkeepalive": "^2.0.3",
+    "async": "^1.4.2",
+    "httpreq": "^0.4.13",
+    "xml2js": "^0.4.12"
+  },
+  "peerDependencies": {
+    "tuberia-core": "^1.0.0-rc.1"
+  }
+}
